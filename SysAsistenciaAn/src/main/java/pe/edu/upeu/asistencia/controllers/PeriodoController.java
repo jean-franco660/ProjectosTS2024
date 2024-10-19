@@ -43,6 +43,10 @@ public class PeriodoController {
     
     @PostMapping("/crear")
     public ResponseEntity<Periodo> createPeriodo(@RequestBody Periodo periodo) {
+        /*Periodo varEnt=Periodo.builder()
+                .nombre(periodo.nombre())
+                .estado(periodo.estado())
+                .build();*/
         Periodo data = periodoService.save(periodo);
         return ResponseEntity.ok(data);
     }
@@ -51,6 +55,12 @@ public class PeriodoController {
     public ResponseEntity<Periodo> getPeriodoById(@PathVariable Long id) {
         Periodo periodo = periodoService.getPeriodoById(id);
         return ResponseEntity.ok(periodo);
+    }
+
+    @GetMapping("/buscarmaxid")
+    public ResponseEntity<Long> getPeriodoMaxId() {
+        Long idMax = periodoService.periodoIdMax();
+        return ResponseEntity.ok(idMax);
     }
     
     @DeleteMapping("/eliminar/{id}")

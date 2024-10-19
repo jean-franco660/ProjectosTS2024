@@ -27,6 +27,7 @@ import pe.edu.upeu.asistencia.services.ActividadService;
  *
  * @author DELL
  */
+//David Mamani Pari
 @RestController
 @RequestMapping("/asis/actividad")
 public class ActividadController {
@@ -37,6 +38,7 @@ public class ActividadController {
     @GetMapping(value = "/list")
     public ResponseEntity<List<Actividad>> listActividad() {
         List<Actividad> actDto = actividadService.findAll();
+        
 
         return ResponseEntity.ok(actDto);
     }
