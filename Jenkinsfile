@@ -10,14 +10,15 @@ pipeline {
         stage('Clone') {
             steps {
                 timeout(time: 2, unit: 'MINUTES'){
-                    git branch: 'main', credentialsId: 'github_pat_token', url: 'https://github.com/dmamanipar/SysEventos2.git'
+                    git branch: 'main', credentialsId: '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', url: 'https://github.com/jean-franco660/ProjectosTS2024.git'
                 }
             }
         }
         stage('Build') {
             steps {
                 timeout(time: 8, unit: 'MINUTES'){
-                    sh "mvn -DskipTests clean package -f SysAsistenciaAn/pom.xml"
+                    // sh "mvn -DskipTests clean package -f SysAsistenciaAn/pom.xml"
+                    sh "mvn clean package -f SysAsistenciaAn/pom.xml"
                 }
             }
         }
